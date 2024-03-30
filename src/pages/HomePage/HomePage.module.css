@@ -1,7 +1,10 @@
 .title {
   text-align: center;
-  color: #ffffff;
-  font-size: 32px;
-  font-weight: 600;
-  margin-bottom: 24px;
+  color: #eed9d9;
+  font-size: 36px;
+  font-weight: 700;
+  font-style: oblique;
+  margin-top: 56px;
+  padding-bottom: 24px;
+  padding-top: 20px;
 }

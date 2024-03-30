@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import css from './MovieCast.module.css';
 
 export default function MovieCast() {
     const { movieId } = useParams();
@@ -33,21 +34,25 @@ export default function MovieCast() {
     return (
         <div>
             {cast.length > 0 ? (
-                <div>
+                <div className={css.container}>
                     {isLoading && <Loader />}
                     {error && <ErrorMessage />}
             
                     {!isLoading && (
-                        <ul>
+                        <ul className={css.list}>
                             {cast.map(({ id, name, character, profile_path }) => (
-                                <li key={id}>
-                                    <img src={
+                                <li
+                                    className={css.item}
+                                    key={id}>
+                                    <img
+                                        className={css.img}
+                                        src={
                                         profile_path ? `https://image.tmdb.org/t/p/w500${profile_path}` : defaultImg
                                     }
                                         alt={`${name} photo`} />
                                     <div>
-                                        <p>{name}</p>
-                                        <p>{character}</p>
+                                        <p className={css.text}>{name}</p>
+                                        <p className={css.text}>{character}</p>
                                     </div>
                                 </li>
                             ))}
@@ -55,7 +60,7 @@ export default function MovieCast() {
                     )}
                 </div>
             ) : (
-                <p>There is no information available...</p>
+                <p className={css.cast}>There is no information available...</p>
             )}
         </div>
     );

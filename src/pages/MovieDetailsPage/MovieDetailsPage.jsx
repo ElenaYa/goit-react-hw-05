@@ -38,43 +38,45 @@ export default function MovieDetailsPage() {
     }, [movieId]);
 
     return (
-        <div>
-            <Link to={backLinkRef.current}>
+        <div className={css.container}>
+            <Link className={css.link} to={backLinkRef.current}>
                 <FaArrowLeft />Go back
             </Link>
 
             {isLoading && <Loader />}
 
             {error && <ErrorMessage />}
-            
-            <div>
-                <img src={
+
+            <div className={css.wrap}>
+                <img
+                    className={css.img}
+                    src={
                     movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` :
                         defaultImg
                 }
                     alt={`${movie.title} poster`} />
-                <div>
-                    <h2>{movie.title}</h2>
+                <div className={css.description}>
+                    <h2 className={css.title}>{movie.title}</h2>
                     {movie.tagline && (
-                        <p>{`"${movie.tagline}"`}</p>
+                        <p className={css.tagline}>{`"${movie.tagline}"`}</p>
                     )}
                     {movie.overview && (
-                        <p><span>Overview: </span>{movie.overview}</p>
+                        <p><span className={css.span}>Overview: </span>{movie.overview}</p>
                     )}
                     {movie.genres && movie.genres.length > 0 && (
-                        <p><span>Genres: </span>{movie.genres.map(genre => genre.name).join(", ")}</p>
+                        <p><span className={css.span}>Genres: </span>{movie.genres.map(genre => genre.name).join(", ")}</p>
                     )}
                     {movie.vote_average > 0 && (
-                        <p><span>Average rating: </span>{Math.floor(movie.vote_average)} / 10 ⭐</p>
+                        <p><span className={css.span}>Average rating: </span>{Math.floor(movie.vote_average)} / 10 ⭐</p>
                     )}
                     {movie.vote_count > 0 && (
-                        <p><span>Vote count: </span>{Math.floor(movie.vote_count)}</p>
+                        <p><span className={css.span}>Vote count: </span>{Math.floor(movie.vote_count)}</p>
                     )}
                     {movie.release_date && (
-                        <p><span>Release date: </span>{movie.release_date}</p>
+                        <p><span className={css.span}>Release date: </span>{movie.release_date}</p>
                     )}
                     {!isLoading && (
-                        <nav>
+                        <nav className={css.nav}>
                             <NavLink
                                 className={({ isActive }) => {
                                     return clsx(css.navLink, isActive && css.isActive);

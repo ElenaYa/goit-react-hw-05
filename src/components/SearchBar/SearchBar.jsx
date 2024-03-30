@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router-dom";
-
+import css from './SearchBar.module.css';
 export default function SearchBar() {
 
     const [params, setParams] = useSearchParams();
@@ -16,11 +16,12 @@ export default function SearchBar() {
     };
 
     return (
-        <div>
+        <div className={css.container}>
             <form onSubmit={handleSubmit}>
-                <h2>Search movie</h2>
+                <h2 className={css.title}>Search movie</h2>
                 <label>
                     <input
+                        className={css.input}
                         type="text"
                         name="search"
                         autoFocus

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import css from './MovieReviews.module.css';
 
 export default function MovieReviews() {
     const { movieId } = useParams();
@@ -33,7 +34,7 @@ export default function MovieReviews() {
     return (
         <div>
             {review.length > 0 ? (
-                <div>
+                <div className={css.container}>
                     {isLoading && <Loader />}
                     {error && <ErrorMessage />}
 
@@ -45,22 +46,26 @@ export default function MovieReviews() {
                                         name, username, rating, avatar_path
                                     },
                                 }) => (
-                                    <li key={id}>
-                                        <img src={
+                                    <li
+                                        className={css.item}
+                                        key={id}>
+                                        <img
+                                            className={css.img}
+                                            src={
                                             avatar_path ? `https://image.tmdb.org/t/p/w500${avatar_path}` : defaultImg
                                         }
                                             alt={`${username} avatar`} />
-                                        <div>
-                                            <div>
+                                        <div className={css.description}>
+                                            <div className={css.nameBox}>
                                                 {username && (
                                                     <p>{username}</p>
                                                 )}
                                                 {name && (
-                                                    <p>{name}</p>
+                                                    <p className={css.name}>{name}</p>
                                                 )}
                                             </div>
                                             {rating && <p>{rating} / 10 ⭐</p>}
-                                            <p>{content}</p>
+                                            <p className={css.content}>{content}</p>
                                         </div>
                                     </li>
                                 )
@@ -69,7 +74,7 @@ export default function MovieReviews() {
                     )}
                 </div>
             ) : (
-                <p>No information is available...</p>
+                <p className={css.text}>No information is available...</p>
             )}
         </div>
     );

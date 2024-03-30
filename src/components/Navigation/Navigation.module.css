@@ -1,3 +1,30 @@
 .isActive {
-  color: orangered;
+  background-color: #bba3a395;
+  border-radius: 8px;
+  padding: 4px 16px;
+}
+.header {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px;
+  box-shadow: 0 0 20px #2f0909;
+  background-color: #2f0606d5;
+}
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+}
+.link {
+  color: #f28686;
+  font-size: 24px;
+  font-weight: 600;
+}
+.link:hover,
+.link:focus {
+  color: #642121;
 }

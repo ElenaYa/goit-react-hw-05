@@ -1,4 +1,4 @@
-
+import css from './MovieCard.module.css'
 
 export default function MovieCard ({
     movie: {title, poster_path, vote_average},
@@ -12,8 +12,8 @@ export default function MovieCard ({
                 poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` :
                     defaultImg
             }
-                alt={`${title} poster`} />
-            <p>{Math.floor(vote_average)} / 10 ⭐</p>
+                alt={`${title} poster`}/>
+            <p className={css.vote}>{Math.floor(vote_average)} / 10 ⭐</p>
         </div>
     );
 
