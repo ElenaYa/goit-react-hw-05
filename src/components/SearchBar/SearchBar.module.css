@@ -11,6 +11,7 @@
 .input {
   width: 420px;
   height: 40px;
+  padding-left: 12px;
   border-radius: 8px;
   border: 1px solid #2f0606d5;
   outline: #e78484 ridge 1px;
